@@ -1,0 +1,46 @@
+@use '../utilities/mixins' as *;
+
+.button {
+  border: none;
+  width: 100%;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  padding: 0.3em 0.2em;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 24px;
+  @include transition(background-color, color);
+
+  &--active {
+    color: var(--dark-cyan);
+    background-color: var(--cyan);
+  }
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    color: var(--dark-cyan);
+    background-color: var(--cyan);
+  }
+
+  &--reset {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 45px);
+    color: var(--dark-cyan);
+    background-color: var(--cyan);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 0.5em 0;
+
+    &:hover,
+    &:active {
+      background-color: var(--light-cyan);
+    }
+
+    &:disabled {
+      cursor: default;
+      background-color: var(--dark-cyan-2);
+    }
+  }
+}

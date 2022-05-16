@@ -1,0 +1,14 @@
+@use '../utilities/mixins' as *;
+
+.container {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  @include mq-down(md) {
+    gap: 0;
+  }
+}

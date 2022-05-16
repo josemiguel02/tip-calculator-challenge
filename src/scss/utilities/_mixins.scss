@@ -1,0 +1,33 @@
+@use '../abstracts/breakpoints' as *;
+
+@mixin transition($props...) {
+  $result: ();
+
+  @for $i from 1 through length($props) {
+    $prop: nth($props, $i);
+    $result: append($result, $prop);
+    $result: append($result, .4s ease-in);
+
+    @if $i != length($props) {
+      $result: append($result, unquote($string: ","));
+    }
+  }
+
+  transition: $result;
+}
+
+@mixin mq-up($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin mq-down($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}

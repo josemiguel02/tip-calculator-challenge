@@ -1,0 +1,42 @@
+@use '../utilities/mixins' as *;
+
+.tip {
+  grid-area: tip;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  &__item {
+    position: relative;
+  }
+
+  &__label {
+    display: inline-block;
+    margin: 0;
+    color: var(--dark-grayish-cyan);
+    margin-bottom: 10px;
+  }
+
+  &__error {
+    display: none;
+    color: crimson;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+    gap: 1em;
+
+    @include mq-down(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+}

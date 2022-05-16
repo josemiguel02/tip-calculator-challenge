@@ -1,0 +1,34 @@
+@use '../utilities/mixins' as *;
+
+.attribution {
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  &__link {
+    text-decoration: none;
+    color: hsl(228, 45%, 44%);
+  }
+
+  &__link--coded {
+    color: #fff;
+    color: var(--dark-cyan);
+    background-color: var(--cyan);
+    padding: 4px;
+    border-radius: 8px;
+    @include transition(color, background-color);
+
+    &:hover,
+    &:active {
+      color: var(--cyan);
+      background-color: var(--dark-cyan);
+    }
+  }
+
+  @include mq-down(md) {
+    margin: 20px 0;
+    flex-direction: column;
+  }
+}
